@@ -19,13 +19,14 @@ func main() {
 	dir := flag.String("dir", "", "Use for other directory")
 	flag.Parse()
 	result := int8(0)
-
+	fmt.Print("started downloading prereq\n");
 	//install prerequisitions
 	out, err := exec.Command("/bin/sh", "test.sh").Output()
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println(BytesToString(out))
+	fmt.Print("done\n");
 	if dir != nil {
 		result = getWordpress(*dir)
 	} else {
